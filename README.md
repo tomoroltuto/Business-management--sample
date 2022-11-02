@@ -46,7 +46,10 @@
 ![URL](https://user-images.githubusercontent.com/90845405/199502933-42814bc8-f5d0-403e-9e50-e3a283ff1b2f.jpg)
 
 
-# [API仕様書](https://tomoroltuto.github.io/Business-management/dist/index.html) 
+
+## [API仕様書](https://tomoroltuto.github.io/Business-management/dist/index.html) 
+
+
 
 # インフラ構成図
 
