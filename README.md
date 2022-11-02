@@ -33,3 +33,17 @@
 * 下請業者が多くなるとLineをスクロールして確認するのが大変
 * 過去の業務を確認はできるが探すのが大変
 
+これらを解決できるアプリケーションを開発したいと思います。
+
+# 設計書
+
+<h2>ER図</h2>
+
+![ER図](https://user-images.githubusercontent.com/90845405/199502850-c678499e-df3e-43a4-bbf2-aa97e562b2cc.jpg)
+
+<h2>URL</h2>
+
+![URL](https://user-images.githubusercontent.com/90845405/199502933-42814bc8-f5d0-403e-9e50-e3a283ff1b2f.jpg)
+
+
+# [API仕様書](https://tomoroltuto.github.io/Business-management/dist/index.html) 
