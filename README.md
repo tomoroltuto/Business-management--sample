@@ -2,7 +2,7 @@
 業務管理アプリケーション
 
 # 概要
-下請業者との業務内容を共有する為の管理システム
+下請業者との作業内容を共有する為の管理システム
 
 # 背景
 現在、電気設備工事の現場監督（サブゼネコン）として働いています。建築（ゼネコン）との業務管理はアプリケーションで管理しておりますが、サブゼネコンとの下請け業者とはアナログ管理でしています。
@@ -45,9 +45,7 @@
 
 ![URL](https://user-images.githubusercontent.com/90845405/199502933-42814bc8-f5d0-403e-9e50-e3a283ff1b2f.jpg)
 
-
-
-## [API仕様書](https://tomoroltuto.github.io/Business-management/dist/index.html) 
+## [swaggerによるAPI仕様書](https://tomoroltuto.github.io/Business-management/dist/index.html) 
 
 
 
