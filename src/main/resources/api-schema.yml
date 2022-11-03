@@ -5,7 +5,7 @@ info:
   description: Business management API　のドキュメントです
 
 paths:
-  /schedule/list:
+  /schedules:
     get:
       summary: "作業予定一覧取得"
       description: "作業予定の一覧を取得できます"
@@ -175,7 +175,7 @@ paths:
              schema:
                $ref: "#/components/schemas/ResourceNotFoundError"
 
-  /performance/list:
+  /performances:
     get:
       summary: "作業実績一覧取得"
       description: "作業実績の一覧を取得できます"
