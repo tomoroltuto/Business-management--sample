@@ -85,10 +85,15 @@
 
 <h2>URL</h2>
 
-![URL](https://user-images.githubusercontent.com/90845405/199732014-eec3878d-a113-40fd-ba9c-29fdcdafbd60.jpg)
+![URL](https://user-images.githubusercontent.com/90845405/199773221-0c42c9ed-8630-4a37-be0c-daa026e099f9.jpg)
+
+<h2>画面遷移図</h2>
+
+![画面表示](https://user-images.githubusercontent.com/90845405/199773534-457ce0e6-d1ec-47f7-9337-8b8630006ead.jpg)
 
 
 ## [swaggerによるAPI仕様書](https://tomoroltuto.github.io/Business-management/dist/index.html) 
+↑編集中です
 
 
 
