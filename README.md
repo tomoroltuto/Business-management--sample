@@ -39,11 +39,13 @@
 
 <h2>ER図</h2>
 
-![ER図](https://user-images.githubusercontent.com/90845405/199502850-c678499e-df3e-43a4-bbf2-aa97e562b2cc.jpg)
+![ER図](https://user-images.githubusercontent.com/90845405/199731980-cf7ce52b-25e0-4da6-947a-b6a4bf305f8c.jpg)
+
 
 <h2>URL</h2>
 
-![URL](https://user-images.githubusercontent.com/90845405/199502933-42814bc8-f5d0-403e-9e50-e3a283ff1b2f.jpg)
+![URL](https://user-images.githubusercontent.com/90845405/199732014-eec3878d-a113-40fd-ba9c-29fdcdafbd60.jpg)
+
 
 ## [swaggerによるAPI仕様書](https://tomoroltuto.github.io/Business-management/dist/index.html) 
 
