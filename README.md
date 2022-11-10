@@ -95,8 +95,7 @@
 
 <h2>ER図</h2>
 
-![ER図](https://user-images.githubusercontent.com/90845405/199746593-49889dfe-3286-4bc7-9a32-5998363f2e1c.jpg)
-
+![ER図](https://user-images.githubusercontent.com/90845405/201116765-17132c74-468c-42ad-8e9d-b8bd16701283.jpg)
 
 
 <h2>URL</h2>
