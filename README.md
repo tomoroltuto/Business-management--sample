@@ -100,9 +100,7 @@
 
 <h2>URL</h2>
 
-![URL](https://user-images.githubusercontent.com/90845405/201485905-a5f9bd1e-2bfb-4583-90a3-3671fa3f608c.jpg)
-
-
+![URL](https://user-images.githubusercontent.com/90845405/201485948-af299584-30a2-4582-845b-dcc41a7d43e0.jpg)
 
 <h2>画面遷移図</h2>
 
