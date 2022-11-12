@@ -95,16 +95,23 @@
 
 <h2>ER図</h2>
 
-![ER図](https://user-images.githubusercontent.com/90845405/201116765-17132c74-468c-42ad-8e9d-b8bd16701283.jpg)
+![ER図](https://user-images.githubusercontent.com/90845405/201485171-83ca9268-018f-457a-9c85-7c4de43b4607.jpg)
 
 
 <h2>URL</h2>
 
-![URL](https://user-images.githubusercontent.com/90845405/199773221-0c42c9ed-8630-4a37-be0c-daa026e099f9.jpg)
+![URL](https://user-images.githubusercontent.com/90845405/201485182-2fc656e0-dbff-44dc-9722-8e827b3d80a3.jpg)
+
 
 <h2>画面遷移図</h2>
 
-![画面表示](https://user-images.githubusercontent.com/90845405/199773534-457ce0e6-d1ec-47f7-9337-8b8630006ead.jpg)
+管理者
+
+![管理者画面表示](https://user-images.githubusercontent.com/90845405/201485222-ffb5457c-972c-423b-a895-dc381188a432.jpg)
+
+下請け業者
+
+![下請け画面表示](https://user-images.githubusercontent.com/90845405/201485233-c715fb18-0780-4a4a-a156-1d810e105183.jpg)
 
 
 ## [swaggerによるAPI仕様書](https://tomoroltuto.github.io/Business-management/dist/index.html) 
@@ -114,4 +121,4 @@
 
 # インフラ構成図
 
-![インフラ構造図](https://user-images.githubusercontent.com/90845405/199517942-1ded7b5b-f4ba-4167-9397-24f2c8f72866.jpg)
+![インフラ構造図](https://user-images.githubusercontent.com/90845405/201485267-aa7a9561-892b-4d2b-ab3c-b294701cbfc1.jpg)
