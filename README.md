@@ -105,11 +105,11 @@
 
 <h2>画面遷移図</h2>
 
-管理者
+<h3>管理者</h3>
 
-![管理者画面表示](https://user-images.githubusercontent.com/90845405/201485222-ffb5457c-972c-423b-a895-dc381188a432.jpg)
+![管理者画面表示](https://user-images.githubusercontent.com/90845405/201485386-4c5fad69-90a9-4732-95ce-4ecfa96101a7.jpg)
 
-下請け業者
+<h3>下請け業者</h3>
 
 ![下請け画面表示](https://user-images.githubusercontent.com/90845405/201485233-c715fb18-0780-4a4a-a156-1d810e105183.jpg)
 
