@@ -122,4 +122,3 @@
 # インフラ構成図
 
 ![インフラ構造図](https://user-images.githubusercontent.com/90845405/201934728-3c8f8ea7-4b6d-4d90-a89e-aa57415d74e7.jpg)
-
