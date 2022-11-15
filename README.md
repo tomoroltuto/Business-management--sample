@@ -95,12 +95,13 @@
 
 <h2>ER図</h2>
 
-![ER図](https://user-images.githubusercontent.com/90845405/201485171-83ca9268-018f-457a-9c85-7c4de43b4607.jpg)
+![ER図](https://user-images.githubusercontent.com/90845405/201934297-650bcf1c-b119-4502-b55d-a776db4d3c0a.jpg)
 
 
-<h2>URL</h2>
+<h2>URL設計書</h2>
 
-![URL](https://user-images.githubusercontent.com/90845405/201485948-af299584-30a2-4582-845b-dcc41a7d43e0.jpg)
+![HTTP＋URL](https://user-images.githubusercontent.com/90845405/201934338-d88cc805-79b3-426f-a28c-a9aded8d39bf.jpg)
+
 
 <h2>画面遷移図</h2>
 
@@ -120,4 +121,5 @@
 
 # インフラ構成図
 
-![インフラ構造図](https://user-images.githubusercontent.com/90845405/201485267-aa7a9561-892b-4d2b-ab3c-b294701cbfc1.jpg)
+![インフラ構造図](https://user-images.githubusercontent.com/90845405/201934728-3c8f8ea7-4b6d-4d90-a89e-aa57415d74e7.jpg)
+
