@@ -187,7 +187,7 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/BatRequestError"
-  /schedules/{id}:
+  /schedules/{schedule_id}:
     get:
       summary: "作業予定取得"
       description: "指定されたIDの作業予定を１件取得"
@@ -307,8 +307,8 @@ paths:
                $ref: "#/components/schemas/ResourceNotFoundError"
   /performances:
     get:
-      summary: "作業実績一覧取得"
-      description: "作業実績の一覧を取得できます"
+      summary: "全作業実績一覧取得"
+      description: "全作業実績の一覧を取得できます"
       operationId: "WorkPerformanceList"
       tags:
         - WorkPerformances
@@ -355,7 +355,7 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/BatRequestError"
-  /performance/{id}:
+  /performances/{performance_id}:
     get:
       summary: "作業実績取得"
       description: "指定されたIDの作業実績を１件取得"
