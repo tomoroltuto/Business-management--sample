@@ -5,10 +5,142 @@ info:
   description: Business management API　のドキュメントです
 
 paths:
+  /users:
+    get:
+      summary: "ユーザ一覧取得"
+      description: "ユーザ一の一覧を取得できます"
+      operationId: "UserList"
+      tags:
+        - Users
+      responses:
+        '200':
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UserListDTO"
+    post:
+      summary: "ユーザ一作成"
+      description: "ユーザを新規作成します"
+      operationId: "createUser"
+      tags:
+        - Users
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UserForm"
+      responses:
+        '201':
+          description: "Created"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    format: int64
+                    example: 1
+                  message:
+                    type: string
+                    example: ユーザーを登録しました
+        '400':
+          description: "Bad Request"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/BatRequestError"
+  /users{user_id}:
+    patch:
+      summary: "ユーザー更新"
+      description: "指定されたユーザーを更新します"
+      operationId: "updateUsers"
+      tags:
+        - Users
+      parameters:
+        - name: UserId
+          in: path
+          required: true
+          description: "更新するユーザ一のID"
+          schema:
+            type: integer
+            format: int64
+            minimum: 1
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UserForm"
+      responses:
+        '200':
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    format: int64
+                    example: 1
+                  message:
+                    type: string
+                    example: ユーザーを登録しました
+        '400':
+          description: "Bat Request"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/BatRequestError"
+        '404':
+          description: "Not Found"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ResourceNotFoundError"
+    delete:
+      summary: "ユーザ一削除"
+      description: "指定されたユーザを削除します"
+      operationId: "deleteUser"
+      tags:
+        - Users
+      parameters:
+        - name: UserId
+          in: path
+          required: true
+          description: "削除するユーザーID"
+          schema:
+            type: integer
+            format: int64
+            minimum: 1
+      responses:
+        '204':
+          description: "No Content"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    format: int64
+                    example: 1
+                  message:
+                    type: string
+                    example: ユーザーを削除しました
+        '404':
+          description: "No Found"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ResourceNotFoundError"
   /schedules:
     get:
-      summary: "作業予定一覧取得"
-      description: "作業予定の一覧を取得できます"
+      summary: "全作業予定一覧取得"
+      description: "全作業予定の一覧を取得できます"
       operationId: "WorkScheduleList"
       tags:
         - WorkSchedules
@@ -19,7 +151,6 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/WorkScheduleListDTO"
-  /schedule:
     post:
       summary: "作業予定作成"
       description: "作業予定を新規作成します"
@@ -46,7 +177,7 @@ paths:
                     example: 1
                   company name:
                     type: string
-                    example: 瀬川株式会社
+                    example: ○○○株式会社
                   message:
                     type: string
                     example: 作業予定を登録しました
@@ -56,7 +187,7 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/BatRequestError"
-  /schedule/{id}:
+  /schedules/{id}:
     get:
       summary: "作業予定取得"
       description: "指定されたIDの作業予定を１件取得"
@@ -113,16 +244,16 @@ paths:
               schema:
                 type: object
                 properties:
-                 id:
-                   type: integer
-                   format: int64
-                   example: 1
-                 company name:
-                   type: string
-                   example: 瀬川株式会社
-                 message:
-                   type: string
-                   example: 作業予定を更新しました
+                  id:
+                    type: integer
+                    format: int64
+                    example: 1
+                  company name:
+                    type: string
+                    example: ○○○株式会社
+                  message:
+                    type: string
+                    example: 作業予定を更新しました
         '400':
           description: "Bat Request"
           content:
@@ -164,17 +295,16 @@ paths:
                     example: 1
                   company name:
                     type: string
-                    example: 瀬川株式会社
+                    example: ○○○株式会社
                   message:
                     type: string
                     example: 作業予定を削除しました
         '404':
           description: "No Found"
           content:
-           application/json:
-             schema:
-               $ref: "#/components/schemas/ResourceNotFoundError"
-
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ResourceNotFoundError"
   /performances:
     get:
       summary: "作業実績一覧取得"
@@ -189,7 +319,6 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/WorkPerformanceListDTO"
-  /performance:
     post:
       summary: "作業実績作成"
       description: "作業実績を新規作成します"
@@ -216,7 +345,7 @@ paths:
                     example: 1
                   company name:
                     type: string
-                    example: 瀬川株式会社
+                    example: ○○○株式会社
                   message:
                     type: string
                     example: 作業実績を登録しました
@@ -289,7 +418,7 @@ paths:
                     example: 1
                   company name:
                     type: string
-                    example: 瀬川株式会社
+                    example: ○○○株式会社
                   message:
                     type: string
                     example: 作業実績を更新しました
@@ -334,7 +463,7 @@ paths:
                     example: 1
                   company name:
                     type: string
-                    example: 瀬川株式会社
+                    example: ○○○株式会社
                   message:
                     type: string
                     example: 作業実績を削除しました
@@ -344,10 +473,9 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/ResourceNotFoundError"
-
 components:
   schemas:
-    WorkScheduleForm:
+    UserForm:
       type: object
       properties:
         company name:
@@ -355,36 +483,54 @@ components:
           description: "作成される会社名"
           maxLength: 256
           minLength: 1
-        occupation:
-          type: string
-          description: "作成される職種"
-          maxLength: 256
-          minLength: 1
         user name:
           type: string
           description: "作成される氏名"
           maxLength: 256
           minLength: 1
-        building name:
-           type: string
-           description: "作成される棟名"
-           maxLength: 256
-           minLength: 1
-        number of floors:
+      required:
+        - company name
+        - user name
+    UserDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          description: "ユーザーID"
+        company name:
           type: string
-          description: "作成される階数"
-          maxLength: 256
-          minLength: 1
-        construction zone:
+          description: "会社名"
+        user name:
           type: string
-          description: "作成される工区"
-          maxLength: 256
-          minLength: 1
+          description: "氏名"
+      required:
+        - id
+        - company name
+        - user name
+    UserListDTO:
+      description: "ユーザーリスト"
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: "#/components/schemas/UserDTO"
+      required:
+        - results
+    WorkScheduleForm:
+      type: object
+      properties:
         working date:
           type: string
           format: date
           description: "作成される日付"
           pattern: ^\d{4}\-(0?[1-9]|1[012])\-(0?[1-9]|[12][0-9]|3[01])$
+        place:
+          type: string
+          description: "作成される作業場所"
+          maxLength: 256
+          minLength: 1
         number of people:
           type: integer
           format: int32
@@ -395,11 +541,8 @@ components:
           maxLength: 256
           minLength: 1
       required:
-        - id
-        - building name
-        - number of floors
-        - construction_zon
         - working date
+        - place
         - number of people
         - work content
     WorkScheduleDTO:
@@ -409,28 +552,13 @@ components:
           type: integer
           format: int64
           description: "作業予定ID"
-        company name:
-          type: string
-          description: "会社名"
-        occupation:
-          type: string
-          description: "職種"
-        user name:
-          type: string
-          description: "氏名"
-        building name:
-          type: string
-          description: "棟名"
-        number of floors:
-          type: string
-          description: "階数"
-        construction zone:
-          type: string
-          description: "工区"
         working date:
           type: string
           format: date
           description: "日付"
+        place:
+          type: string
+          description: "作業場所"
         number of people:
           type: integer
           format: int32
@@ -439,11 +567,8 @@ components:
           type: string
           description: "作業内容"
       required:
-        - id
-        - building name
-        - number of floors
-        - construction_zon
         - working date
+        - place
         - number of people
         - work content
     WorkScheduleListDTO:
@@ -459,41 +584,16 @@ components:
     WorkPerformanceForm:
       type: object
       properties:
-        company name:
-          type: string
-          description: "作成される会社名"
-          maxLength: 256
-          minLength: 1
-        occupation:
-          type: string
-          description: "作成される職種"
-          maxLength: 256
-          minLength: 1
-        user name:
-          type: string
-          description: "作成される氏名"
-          maxLength: 256
-          minLength: 1
-        building name:
-          type: string
-          description: "作成される棟名"
-          maxLength: 256
-          minLength: 1
-        number of floors:
-          type: string
-          description: "作成される階数"
-          maxLength: 256
-          minLength: 1
-        construction zone:
-          type: string
-          description: "作成される工区"
-          maxLength: 256
-          minLength: 1
         working date:
           type: string
           format: date
           description: "作成される日付"
           pattern: ^\d{4}\-(0?[1-9]|1[012])\-(0?[1-9]|[12][0-9]|3[01])$
+        place:
+          type: string
+          description: "作成される作業場所"
+          maxLength: 256
+          minLength: 1
         number of people:
           type: integer
           format: int32
@@ -504,11 +604,8 @@ components:
           maxLength: 256
           minLength: 1
       required:
-        - id
-        - building name
-        - number of floors
-        - construction_zon
         - working date
+        - place
         - number of people
         - work content
     WorkPerformanceDTO:
@@ -518,28 +615,13 @@ components:
           type: integer
           format: int64
           description: "作業実績ID"
-        company name:
-          type: string
-          description: "会社名"
-        occupation:
-          type: string
-          description: "職種"
-        user name:
-          type: string
-          description: "氏名"
-        building name:
-          type: string
-          description: "棟名"
-        number of floors:
-          type: string
-          description: "階数"
-        construction zone:
-          type: string
-          description: "工区"
         working date:
           type: string
           format: date
           description: "日付"
+        place:
+          type: string
+          description: "作業場所"
         number of people:
           type: integer
           format: int32
@@ -548,11 +630,8 @@ components:
           type: string
           description: "作業内容"
       required:
-        - id
-        - building name
-        - number of floors
-        - construction_zon
         - working date
+        - place
         - number of people
         - work content
     WorkPerformanceListDTO:
@@ -562,7 +641,7 @@ components:
         results:
           type: array
           items:
-            $ref: "#/components/schemas/WorkScheduleDTO"
+            $ref: "#/components/schemas/WorkPerformanceDTO"
       required:
         - results
     ResourceNotFoundError:
@@ -612,8 +691,3 @@ components:
       required:
         - name
         - reason
-
-
-
-
-
