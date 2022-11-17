@@ -143,7 +143,7 @@ paths:
       description: "全作業予定の一覧を取得できます"
       operationId: "WorkScheduleList"
       tags:
-        - WorkSchedules
+        - Schedules
       responses:
         '200':
           description: "OK"
@@ -156,7 +156,7 @@ paths:
       description: "作業予定を新規作成します"
       operationId: "createWorkSchedule"
       tags:
-        - WorkSchedules
+        - Schedules
       requestBody:
         required: true
         content:
@@ -192,7 +192,7 @@ paths:
       summary: "作業予定取得"
       description: "指定されたIDの作業予定を１件取得"
       tags:
-        - WorkSchedules
+        - Schedules
       operationId: "showWorkSchedule"
       parameters:
         - name: WorkScheduleId
@@ -220,7 +220,7 @@ paths:
       description: "指定された作業予定の内容を更新します"
       operationId: "updateWorkSchedule"
       tags:
-        - WorkSchedules
+        - Schedules
       parameters:
         - name: WorkScheduleId
           in: path
@@ -271,7 +271,7 @@ paths:
       description: "指定された作業内容を削除します"
       operationId: "deleteWorkSchedule"
       tags:
-        - WorkSchedules
+        - Schedules
       parameters:
         - name: WorkScheduleId
           in: path
@@ -311,7 +311,7 @@ paths:
       description: "全作業実績の一覧を取得できます"
       operationId: "WorkPerformanceList"
       tags:
-        - WorkPerformances
+        - Performances
       responses:
         '200':
           description: "OK"
@@ -324,7 +324,7 @@ paths:
       description: "作業実績を新規作成します"
       operationId: "createWorkPerformance"
       tags:
-        - WorkPerformances
+        - Performances
       requestBody:
         required: true
         content:
@@ -360,7 +360,7 @@ paths:
       summary: "作業実績取得"
       description: "指定されたIDの作業実績を１件取得"
       tags:
-        - WorkPerformances
+        - Performances
       operationId: "showWorkPerformance"
       parameters:
         - name: WorkPerformanceId
@@ -388,7 +388,7 @@ paths:
       description: "指定された作業実績の内容を更新します"
       operationId: "updateWorkPerformance"
       tags:
-        - WorkPerformances
+        - Performances
       parameters:
         - name: WorkPerformanceId
           in: path
@@ -439,7 +439,7 @@ paths:
       description: "指定された作業実績を削除します"
       operationId: "deleteWorkPerformance"
       tags:
-        - WorkPerformances
+        - Performances
       parameters:
         - name: WorkPerformanceId
           in: path
