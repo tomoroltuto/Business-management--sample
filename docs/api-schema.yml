@@ -198,7 +198,7 @@ paths:
         - name: WorkScheduleId
           in: path
           required: true
-          description: "詳細を取得する作業予定のID"
+          description: "取得する作業予定のID"
           schema:
             type: integer
             format: int64
@@ -366,7 +366,7 @@ paths:
         - name: WorkPerformanceId
           in: path
           required: true
-          description: "詳細を取得する作業実績のID"
+          description: "取得する作業実績のID"
           schema:
             type: integer
             format: int64
