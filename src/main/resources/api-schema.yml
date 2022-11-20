@@ -1,0 +1,244 @@
+openapi: "3.0.0"
+info:
+  title: Business management API Document
+  version: "0.0.1"
+  description: Business management API　のドキュメントです
+
+paths:
+  /users:
+    get:
+      summary: "ユーザ一覧取得"
+      description: "ユーザ一の一覧を取得できます"
+      operationId: "UserList"
+      tags:
+        - users
+      responses:
+        '200':
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UserListDTO"
+    post:
+      summary: "ユーザ一作成"
+      description: "ユーザを新規作成します"
+      operationId: "createUser"
+      tags:
+        - users
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UserForm"
+      responses:
+        '201':
+          description: "Created"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UserResponseMessage"
+        '400':
+          description: "Bad Request"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/BatRequestError"
+  /users/{user_Id}:
+    get:
+      summary: "ユーザー取得"
+      description: "指定されたIDのユーザを１件取得"
+      operationId: "showUser"
+      tags:
+        - users
+      parameters:
+        - name: user_Id
+          in: path
+          required: true
+          description: "取得するユーザーのID"
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UserDTO"
+        '404':
+          description: "Not Found"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ResourceNotFoundError"
+    patch:
+      summary: "ユーザー更新"
+      description: "指定されたユーザーを更新します"
+      operationId: "updateUser"
+      tags:
+        - users
+      parameters:
+        - name: user_Id
+          in: path
+          required: true
+          description: "更新するユーザ一のID"
+          schema:
+            type: integer
+            format: int64
+            minimum: 1
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UserForm"
+      responses:
+        '200':
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UserResponseMessage"
+        '400':
+          description: "Bat Request"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/BatRequestError"
+        '404':
+          description: "Not Found"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ResourceNotFoundError"
+    delete:
+      summary: "ユーザ一削除"
+      description: "指定されたユーザを削除します"
+      operationId: "deleteUser"
+      tags:
+        - users
+      parameters:
+        - name: user_Id
+          in: path
+          required: true
+          description: "削除するユーザーID"
+          schema:
+            type: integer
+            format: int64
+            minimum: 1
+      responses:
+        '204':
+          description: "No Content"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UserResponseMessage"
+        '404':
+          description: "No Found"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ResourceNotFoundError"
+components:
+  schemas:
+    UserForm:
+      type: object
+      properties:
+        company name:
+          type: string
+          description: "作成される会社名"
+          maxLength: 256
+          minLength: 1
+        user name:
+          type: string
+          description: "作成される氏名"
+          maxLength: 256
+          minLength: 1
+      required:
+        - company name
+        - user name
+    UserDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          description: "ユーザーID"
+        company name:
+          type: string
+          description: "会社名"
+        user name:
+          type: string
+          description: "氏名"
+      required:
+        - id
+        - company name
+        - user name
+    UserListDTO:
+      description: "ユーザーリスト"
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: "#/components/schemas/UserDTO"
+      required:
+        - results
+    ResourceNotFoundError:
+      description: "指定したリソースが存在しない"
+      type: object
+      properties:
+        title:
+          type: string
+          description: "エラーのタイトル"
+          default: "Resource Not Found"
+        detail:
+          type: string
+          description: "エラーの詳細"
+      required:
+        - title
+        - detail
+    BatRequestError:
+      description: "リクエストが不正"
+      type: object
+      properties:
+        title:
+          type: string
+          description: "エラーのタイトル"
+          default: "Bad Request"
+        detail:
+          type: string
+          description: "エラーの詳細"
+          default: "リクエストが不正です。正しいリクエストでリトライしてください"
+        invalid-params:
+          type: array
+          items:
+            $ref: "#/components/schemas/InvalidParam"
+      required:
+        - title
+        - detail
+        - invalid-params
+    InvalidParam:
+      description: "不正なリクエストについての詳細"
+      type: object
+      properties:
+        name:
+          type: string
+          description: "エラーが発生したフィールド名"
+        reason:
+          type: string
+          description: "エラーの理由"
+      required:
+        - name
+        - reason
+    UserResponseMessage:
+      description: "ユーザー用レスポンスメッセージ"
+      type: object
+      properties:
+        message:
+          type: string
+          description: "メッセージ"
+          example: "ユーザーを登録・更新・削除しました"
+      required:
+        - message
