@@ -11,7 +11,7 @@ paths:
       description: "ユーザ一の一覧を取得できます"
       operationId: "UserList"
       tags:
-        - Users
+        - users
       responses:
         '200':
           description: "OK"
@@ -24,7 +24,7 @@ paths:
       description: "ユーザを新規作成します"
       operationId: "createUser"
       tags:
-        - Users
+        - users
       requestBody:
         required: true
         content:
@@ -37,30 +37,49 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  id:
-                    type: integer
-                    format: int64
-                    example: 1
-                  message:
-                    type: string
-                    example: ユーザーを登録しました
+                $ref: "#/components/schemas/UserResponseMessage"
         '400':
           description: "Bad Request"
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/BatRequestError"
-  /users{user_id}:
+  /users/{user_Id}:
+    get:
+      summary: "ユーザー取得"
+      description: "指定されたIDのユーザを１件取得"
+      operationId: "showUser"
+      tags:
+        - users
+      parameters:
+        - name: user_Id
+          in: path
+          required: true
+          description: "取得するユーザーのID"
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UserDTO"
+        '404':
+          description: "Not Found"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ResourceNotFoundError"
     patch:
       summary: "ユーザー更新"
       description: "指定されたユーザーを更新します"
-      operationId: "updateUsers"
+      operationId: "updateUser"
       tags:
-        - Users
+        - users
       parameters:
-        - name: UserId
+        - name: user_Id
           in: path
           required: true
           description: "更新するユーザ一のID"
@@ -80,15 +99,7 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  id:
-                    type: integer
-                    format: int64
-                    example: 1
-                  message:
-                    type: string
-                    example: ユーザーを登録しました
+                $ref: "#/components/schemas/UserResponseMessage"
         '400':
           description: "Bat Request"
           content:
@@ -106,9 +117,9 @@ paths:
       description: "指定されたユーザを削除します"
       operationId: "deleteUser"
       tags:
-        - Users
+        - users
       parameters:
-        - name: UserId
+        - name: user_Id
           in: path
           required: true
           description: "削除するユーザーID"
@@ -122,15 +133,7 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  id:
-                    type: integer
-                    format: int64
-                    example: 1
-                  message:
-                    type: string
-                    example: ユーザーを削除しました
+                $ref: "#/components/schemas/UserResponseMessage"
         '404':
           description: "No Found"
           content:
@@ -691,3 +694,13 @@ components:
       required:
         - name
         - reason
+    UserResponseMessage:
+      description: "ユーザー用レスポンスメッセージ"
+      type: object
+      properties:
+        message:
+          type: string
+          description: "メッセージ"
+          example: "ユーザーを登録・更新・削除しました"
+      required:
+        - message
